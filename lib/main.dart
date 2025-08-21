@@ -81,6 +81,21 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: const Text('Ver Row Expanded'),
               ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const StarRatingScreen()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  minimumSize: const Size(200, 50),
+                ),
+                child: const Text('Ver Rating Estrellas'),
+              ),
             ],
           ),
         ),
@@ -108,7 +123,7 @@ class ColumnScreen extends StatelessWidget {
               width: 250,
               height: 180,
               child: Image.asset(
-                'images/pic1.jpg',
+                'images/psj1.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -116,7 +131,7 @@ class ColumnScreen extends StatelessWidget {
               width: 250,
               height: 180,
               child: Image.asset(
-                'images/pic2.jpg',
+                'images/psj2.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -124,7 +139,7 @@ class ColumnScreen extends StatelessWidget {
               width: 250,
               height: 180,
               child: Image.asset(
-                'images/pic3.jpg',
+                'images/psj3.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -161,7 +176,7 @@ class RowScreen extends StatelessWidget {
               width: 110,
               height: 180,
               child: Image.asset(
-                'images/pic1.jpg',
+                'images/psj1.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -169,7 +184,7 @@ class RowScreen extends StatelessWidget {
               width: 110,
               height: 180,
               child: Image.asset(
-                'images/pic2.jpg',
+                'images/psj2.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -177,7 +192,7 @@ class RowScreen extends StatelessWidget {
               width: 110,
               height: 180,
               child: Image.asset(
-                'images/pic3.jpg',
+                'images/psj3.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -283,6 +298,88 @@ class ExpandedRowScreen extends StatelessWidget {
           Navigator.pop(context);
         },
         backgroundColor: Colors.purple,
+        child: const Icon(Icons.arrow_back, color: Colors.white),
+      ),
+    );
+  }
+}
+
+class StarRatingScreen extends StatelessWidget {
+  const StarRatingScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Rating de Estrellas'),
+        backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Calificación: 3/5 estrellas',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.star, color: Colors.green[500]),
+                Icon(Icons.star, color: Colors.green[500]),
+                Icon(Icons.star, color: Colors.green[500]),
+                const Icon(Icons.star, color: Colors.black),
+                const Icon(Icons.star, color: Colors.black),
+              ],
+            ),
+            const SizedBox(height: 30),
+            const Text(
+              'Ejemplo de uso:',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.all(16),
+              margin: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.green[50],
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.green),
+              ),
+              child: const Column(
+                children: [
+                  Text(
+                    'Pavlova',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 10),
+                  Text('Delicioso postre de merengue con frutas'),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.star, color: Colors.green, size: 16),
+                      Icon(Icons.star, color: Colors.green, size: 16),
+                      Icon(Icons.star, color: Colors.green, size: 16),
+                      Icon(Icons.star, color: Colors.black, size: 16),
+                      Icon(Icons.star, color: Colors.black, size: 16),
+                      SizedBox(width: 10),
+                      Text('170 Reviews'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        backgroundColor: Colors.green,
         child: const Icon(Icons.arrow_back, color: Colors.white),
       ),
     );
